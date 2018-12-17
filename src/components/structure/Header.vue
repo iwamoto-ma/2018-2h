@@ -10,7 +10,8 @@
     background-image linear-gradient(141deg, #ff0561, #ff3860 71%, #ff5257)
     border-bottom 2px solid #eee
     color #fff
-    padding 4.8rem 2.4rem
+    padding-top 4.8rem
+    padding-bottom 4.8rem
 
     &_Title
       font-size 3.2rem

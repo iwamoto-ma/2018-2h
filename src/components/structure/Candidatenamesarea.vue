@@ -2,7 +2,7 @@
   .Candidatenames
     .field.is-grouped
       .control.is-expanded
-        input.input.is-size-4(type="text" placeholder="Input Name")
+        input.input.is-size-4(type="text" placeholder="Input Name" v-model='candidate')
       .control
         a.button.is-primary.is-large Add Name
     .Candidatenames_list
@@ -10,21 +10,27 @@
         //- nameset
         .control
           .tags.are-large.has-addons
-            a.tag.is-link.is-large komatsu-sa
+            .tag.is-link.is-large komatsu-sa
             a.tag.is-delete.is-large
         .control
           .tags.has-addons
-            a.tag.is-link.is-large hoge-hoge
+            .tag.is-link.is-large hoge-hoge
             a.tag.is-delete.is-large
         .control
           .tags.has-addons
-            a.tag.is-link.is-large mogemoge
+            .tag.is-link.is-large mogemoge
             a.tag.is-delete.is-large
+    p {{ candidate }}
 </template>
 
 <script>
 export default {
-  
+  name: 'candidate',
+  data () {
+    return {
+      candidate:''
+    }
+  }
 }
 </script>
 

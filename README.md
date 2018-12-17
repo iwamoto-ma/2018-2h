@@ -1,21 +1,6 @@
 # WORKSHOP
 2018 2H
 
-## デプロイ
-```sh
-1. BranchA Create
-2. BranchA Push
-3. Push Trigger -> Auto Deploy  ( Development )
-   https://$BranchA$--competent-lalande-5c4d7a.netlify.com/
-4. Pull requests ( BranchA -> master  )
-5. Pull requests Trigger -> Auto Deploy  ( Staging )
-   https://deploy-preview-$Pull requests Number$--competent-lalande-5c4d7a.netlify.com/
-6. Merge
-7. Merge Trigger -> Auto Deploy  ( Production )
-   https://competent-lalande-5c4d7a.netlify.com/
-8. Done
-```
-
 ### 動作環境
 ```sh
 $ node -v
@@ -30,14 +15,29 @@ $ git clone https://github.com/iwamoto-ma/2018-2h.git
 $ yarn
 ```
 
+### デプロイ
+```sh
+1. Branch ( ComponentName-name ) Create ( base master )
+2. Branch Push
+3. Push Trigger -> Build & Test -> Auto Deploy  ( Development )
+   https://$Branch$--competent-lalande-5c4d7a.netlify.com/
+4. Pull requests ( Branch -> master  )
+5. Pull requests Trigger -> Build & Test -> Auto Deploy  ( Staging )
+   https://deploy-preview-$Pull requests Number$--competent-lalande-5c4d7a.netlify.com/
+6. Merge
+7. Merge Trigger -> Build & Test -> Auto Deploy  ( Production )
+   https://competent-lalande-5c4d7a.netlify.com/
+8. Done
+```
+
 ## タスク
-### watch
+### Watch
 ```sh
 $ yarn dev
 ```
 <http://localhost:3000/>
 
-### build
+### Build
 ```sh
 $ yarn build
 ```
@@ -62,4 +62,4 @@ $ yarn build
 ## Git運用ルール
 + master
 + ComponentsName-name
-+ master から ComponentsName-name ブランチを作成
++ master から ComponentName-name ブランチを作成

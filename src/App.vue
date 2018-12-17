@@ -1,15 +1,19 @@
 <template lang="pug">
-  StHeader
+  div
+    StHeader
+    Candidatenamesarea
 </template>
 
 <script>
 'use strict'
 
 import StHeader from '@/components/structure/Header'
+import Candidatenamesarea from '@/components/structure/Candidatenamesarea'
 
 export default {
   components: {
-    StHeader
+    StHeader,
+    Candidatenamesarea
   }
 }
 </script>

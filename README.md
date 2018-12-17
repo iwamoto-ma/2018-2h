@@ -1,10 +1,6 @@
 # WORKSHOP
 2018 2H
 
-## URL
-+ 開発環境
-<http://frontend.gnavi.co.jp/kaiin-workshop/>
-
 ## デプロイ
 ```sh
 1. BranchA Create
@@ -45,7 +41,6 @@ $ yarn dev
 ```sh
 $ yarn build
 ```
-dist配下にビルド
 
 ## ディレクトリ構成
 ```

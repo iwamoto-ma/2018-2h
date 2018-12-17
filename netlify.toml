@@ -1,0 +1,6 @@
+[context.production.environment]
+PUG_ENV = "production"
+[context.deploy-preview.environment]
+PUG_ENV = "staging"
+[context.branch-deploy.environment]
+PUG_ENV = "development"

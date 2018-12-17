@@ -17,7 +17,7 @@ $ yarn
 
 ### デプロイ
 ```sh
-1. Branch ( ComponentName-name ) Create ( base master )
+1. Branch ( componentname-name ) Create ( base master )
 2. Branch Push
 3. Push Trigger -> Build & Test -> Auto Deploy  ( Development )
    https://$Branch$--competent-lalande-5c4d7a.netlify.com/
@@ -61,5 +61,5 @@ $ yarn build
 
 ## Git運用ルール
 + master
-+ ComponentsName-name
-+ master から ComponentName-name ブランチを作成
++ componentsname-name
++ master から componentname-name ブランチを作成

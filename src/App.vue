@@ -1,15 +1,22 @@
 <template lang="pug">
-  StHeader
+  .wrapper
+    StHeader
+    CandidateNames
+    StFooter
 </template>
 
 <script>
 'use strict'
 
 import StHeader from '@/components/structure/Header'
+import StFooter from '@/components/structure/Footer'
+import CandidateNames from '@/components/structure/CandidateNames'
 
 export default {
   components: {
-    StHeader
+    StHeader,
+    StFooter,
+    CandidateNames
   }
 }
 </script>

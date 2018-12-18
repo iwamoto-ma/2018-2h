@@ -3,7 +3,6 @@
     h2.CandidateNamesArea_Title 幹事候補者を「幹事候補者名」欄に入力して登録してください
 
     .CandidateNamesArea_Item-Input
-      // i.mdi.mdi-label.mdi-18px
       input.CandidateNamesArea_Add.js-CandidateNamesArea_Add(
         type="text",
         placeholder="幹事候補者名",
@@ -51,27 +50,26 @@ export default {
       const value = e.target.value
 
       if (e.keyCode === 13 && value) {
-        this.$store.commit(types.ADD_CANDIDATENAMES, e.target.value)
+        this.$store.dispatch('addCandidatenames', e.target.value)
         e.target.value = ''
       }
-
     },
 
     doBlur (e) {
       const value = e.target.value
 
       if (value.length) {
-        this.$store.commit(types.ADD_CANDIDATENAMES, value)
+        this.$store.dispatch('addCandidatenames', value)
         e.target.value = ''
       }
     },
 
     doAddName (value) {
-      this.$store.commit(types.ADD_CANDIDATENAMES, value)
+      this.$store.dispatch('addCandidatenames', value)
     },
 
     doRemoveName (index) {
-      this.$store.commit(types.REMOVE_CANDIDATENAMES, index)
+      this.$store.dispatch('removeCandidatenames', index)
     }
   }
 }
@@ -83,12 +81,9 @@ export default {
       font-size 1.8rem
 
     &_Items
-      // border 1px solid #ffdd57
-      // border-radius 4px
       display flex
       flex-wrap wrap
       justify-content flex-start
-      // padding 2.4rem 2rem 1.2rem 2rem
       margin-top 2.8rem
 
     &_Item
@@ -98,11 +93,6 @@ export default {
       justify-content flex-start
       line-height 1
       margin 0 0.8rem 1.6rem 0.8rem
-
-    /*
-    &_Item:nth-last-child(2)
-      margin-right 1.6rem
-    */
 
     &_Item-View
       background-color #ff3860
@@ -147,7 +137,6 @@ export default {
     &_Add
       border 2px solid #aaa
       border-width 0 0 2px 0
-      // border-radius 4px
       background-color #eee
       border-top-right-radius 4px
       border-top-left-radius 4px
@@ -155,13 +144,11 @@ export default {
       border-bottom-left-radius 0
       font-size 1.6rem
       flex 1
-      // margin-left 0.4rem
       padding 1.6rem
       outline 0
       width 100%
 
     &_Add:focus
-      // background-color #ffdd57
       border-bottom-color #ff3860
 
   .animation-Bound

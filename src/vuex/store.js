@@ -26,8 +26,19 @@ const mutations = {
   }
 }
 
+const actions = {
+  addCandidatenames: ({commit}, value) => {
+    commit(types.ADD_CANDIDATENAMES, value)
+  },
+
+  removeCandidatenames: ({commit}, index) => {
+    commit(types.REMOVE_CANDIDATENAMES, index)
+  }
+}
+
 export default new Vuex.Store({
   state,
   getters,
+  actions,
   mutations
 })

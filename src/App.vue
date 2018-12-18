@@ -1,15 +1,24 @@
 <template lang="pug">
-  StHeader
+  .wrapper
+    StHeader
+    .container
+      Candidatenamesarea
+    StFooter
 </template>
 
 <script>
 'use strict'
 
 import StHeader from '@/components/structure/Header'
+import StFooter from '@/components/structure/Footer'
+
+import Candidatenamesarea from '@/components/public/Candidatenamesarea'
 
 export default {
   components: {
-    StHeader
+    StHeader,
+    StFooter,
+    Candidatenamesarea
   }
 }
 </script>
@@ -27,4 +36,6 @@ body
   margin-left auto
   margin-right auto
   width 128rem
+.container
+  padding: 10em 0;
 </style>

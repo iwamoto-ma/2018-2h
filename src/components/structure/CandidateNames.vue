@@ -3,13 +3,12 @@
     .st-Inner
       .RecommendManager_Head 推薦したい幹事さんを入力欄に入れて登録してください。
 
-      form(@submit.prevent="addName")
+      form(@submit.prevent="addName" class="AddNameForm")
         input(type="text" v-model="newName" placeholder="推薦幹事者名" class="InputName")
-        input(type="submit" value="登録")
+        input(type="submit" value="登録" class="ResistorBtn")
       ul(class="CandidateNameList")
         li(v-for="(name, index) in names" class="CandidateName") {{ name }} さん
-          span(@click="delName(index)")
-            span(class="DelBtn") ×
+          span(@click="delName(index)" class="DelBtn") ×
 </template>
 
 <script>
@@ -42,8 +41,24 @@ export default {
     padding 0 0 10px
     font-size 14px
 
+  .AddNameForm
+    display: flex;
+    align-items: center;
+
   .InputName
+    display inline-block
     font-size 16px
+    vertical-align middle
+
+  .ResistorBtn
+    display inline-block
+    margin-left 8px
+    background-color #ff0561
+    color #fff
+    font-size 10px
+    font-weight bold
+    border-radius 3px
+    vertical-align middle
 
   .CandidateNameList
     margin 10px 0 0
@@ -62,5 +77,4 @@ export default {
     text-align center
     border-radius 3px
     cursor pointer
-
 </style>

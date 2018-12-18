@@ -6,8 +6,8 @@
       input.CandidateNamesArea_Add.js-CandidateNamesArea_Add(
         type="text",
         placeholder="幹事候補者名",
-        @keydown="doKeydown",
-        @blur="doBlur",
+        @keydown="doInputKeydown",
+        @blur="doInputBlur",
       )
 
     ul.CandidateNamesArea_Items
@@ -46,7 +46,7 @@ export default {
       }
     },
 
-    doKeydown (e) {
+    doInputKeydown (e) {
       const value = e.target.value
 
       if (e.keyCode === 13 && value) {
@@ -55,7 +55,7 @@ export default {
       }
     },
 
-    doBlur (e) {
+    doInputBlur (e) {
       const value = e.target.value
 
       if (value.length) {

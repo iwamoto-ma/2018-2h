@@ -2,33 +2,35 @@
   .Candidatenames
     .field.is-grouped
       .control.is-expanded
-        input.input.is-size-4(type="text" placeholder="Input Name" v-model='candidate')
+        input.input.is-size-4(type="text", placeholder="Input Name", v-model='candidateItem', @keypress.enter='addListname(candidateItem)')
       .control
-        a.button.is-primary.is-large Add Name
+        a.button.is-primary.is-large(@click='addListname(candidateItem)') Add Name
     .Candidatenames_list
       .field.is-grouped.is-grouped-multiline
         //- nameset
-        .control
+        .control(v-for='item in nameItem')
           .tags.are-large.has-addons
-            .tag.is-link.is-large komatsu-sa
+            .tag.is-link.is-large {{ item.name }}
             a.tag.is-delete.is-large
-        .control
-          .tags.has-addons
-            .tag.is-link.is-large hoge-hoge
-            a.tag.is-delete.is-large
-        .control
-          .tags.has-addons
-            .tag.is-link.is-large mogemoge
-            a.tag.is-delete.is-large
-    p {{ candidate }}
 </template>
 
 <script>
 export default {
-  name: 'candidate',
-  data () {
+  data: () => {
     return {
-      candidate:''
+      nameItem:[
+        { name: 'komatsu-sa' },
+        { name: 'mogehoge' }
+      ],
+      candidateItem: ''
+    }
+  },
+  methods: {
+    addListname: (newName) => {
+      this.nameItem.push({
+        name: newName
+      });
+      this.candidateItem = '';
     }
   }
 }

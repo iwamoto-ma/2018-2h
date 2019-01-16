@@ -51,8 +51,12 @@
     methods: {
       addTodoText: function(){
         var text = document.getElementById('js-member').value;
-        this.$store.commit('ADD_TODO', text);
-        document.getElementById('js-member').value = '';
+        if(text !== ''){
+          this.$store.commit('ADD_TODO', text);
+          document.getElementById('js-member').value = '';
+        } else {
+          alert('名前を入力してください');
+        }
       },
       deleteTodoText: function(index){
         this.$store.commit('DELETE_TODO', index);

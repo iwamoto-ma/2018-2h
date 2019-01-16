@@ -1,84 +1,64 @@
 <template lang="pug">
   .st-Inner
     h2.input-Title 参加メンバーを入力してください
-    form.input-Area(v-on:submit.prevent="doAdd")
-      input.input-Area-Member(type="text",　ref="comment")
+    form.input-Area(v-on:submit.prevent="addTodoText")
+      input#js-member.input-Area-Member(type="text",　ref="comment")
       button.input-Area-Button(type="submit") 追加
 
     table.member-List
-      tr.member-List-Item(v-for="item in todos" :key="item.id")
-        td.member-List-Name {{ item.comment }}
+      tr.member-List-Item(v-for="(todo, index) in todos" v-bind:key="todo")
+        td.member-List-Name {{ todo }}
         td.member-List-Button
-          button(v-on:click="doRemove(item)") 削除
+          button(@click="deleteTodoText(index)") 削除
 
 </template>
 
-
 <script>
-'use strict'
 
-var STORAGE_KEY = 'todos-vuejs-demo'
-var todoStorage = {
-  fetch: function() {
-    var todos = JSON.parse(
-      localStorage.getItem(STORAGE_KEY) || '[]'
-    )
-    todos.forEach(function(todo, index) {
-      todo.id = index
-    })
-    todoStorage.uid = todos.length
-    return todos
-  },
-  save: function(todos) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
-  }
-}
-
-export default {
-  name: 'InputName',
-	data: function() {
-		return {
-			todos: []
-		};
-	},
- watch: {
-    todos: {
-      // 引数はウォッチしているプロパティの変更後の値
-      handler: function(todos) {
-        todoStorage.save(todos)
-      },
-      // deep オプションでネストしているデータも監視
-      deep: true
-    }
-  },
-  created() {
-    // インスタンス作成時に自動的に fetch() する
-    this.todos = todoStorage.fetch()
-  },
-  methods: {
-    // ToDo 追加の処理
-    doAdd: function(event, value) {
-      // ref で名前を付けておいた要素を参照
-      var comment = this.$refs.comment
-      // 入力がなければ何もしないで return
-      if (!comment.value.length) {
-        return
-      }
-      // { コメント }
-      // というオブジェクトを現在の todos リストへ push
-      this.todos.push({
-        comment: comment.value,
-      })
-      // フォーム要素を空にする
-      comment.value = ''
+  var STORAGE_KEY = 'todos-vuejs-demo'
+  var todoStorage = {
+    fetch: function() {
+      var storageTodos = JSON.parse(
+        localStorage.getItem(STORAGE_KEY) || '[]'
+      )
+      return storageTodos
     },
-    // 削除の処理
-    doRemove: function(item) {
-      var index = this.todos.indexOf(item)
-      this.todos.splice(index, 1)
+    save: function(storageTodos) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(storageTodos))
     }
   }
-}
+
+  export default {
+    computed: {
+      todos: function() {
+        return this.$store.getters.currentTodo;
+      }
+    },
+    created() {
+      // インスタンス作成時に自動的に fetch() する
+      this.$store.state.todos = todoStorage.fetch()
+    },
+    watch: {
+      todos: {
+        // 引数はウォッチしているプロパティの変更後の値
+        handler: function(todos) {
+          todoStorage.save(todos)
+        },
+        // deep オプションでネストしているデータも監視
+        deep: true
+      }
+    },
+    methods: {
+      addTodoText: function(){
+        var text = document.getElementById('js-member').value;
+        this.$store.commit('ADD_TODO', text);
+        document.getElementById('js-member').value = '';
+      },
+      deleteTodoText: function(index){
+        this.$store.commit('DELETE_TODO', index);
+      }
+    }
+  }
 </script>
 
 <style lang="stylus">
@@ -157,4 +137,3 @@ export default {
         background-color #ccc
 
 </style>
-

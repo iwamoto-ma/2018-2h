@@ -15,7 +15,7 @@ $ git clone https://github.com/iwamoto-ma/2018-2h.git
 $ yarn
 ```
 
-### デプロイ
+### ビルド＆デプロイ
 ```sh
 1. Branch ( componentname-name ) Create ( base master )
 2. Branch Push

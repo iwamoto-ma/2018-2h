@@ -5,25 +5,25 @@ const state = {
 }
 
 const mutations = {
-  'ADD_CANDIDATENAME' (state) {
-    state.candidatename = state.candidatename.push();
+  'ADD_CANDIDATENAME' (state, value) {
+    state.candidatename.push(value)
   },
-  'DELETE_CANDIDATENAME' (state) {
-    // state.Candidatename = state.Candidatename.shift();
+  'DELETE_CANDIDATENAME' (state, value) {
+    state.candidatename.splice(value, 1)
   }
 }
 const actions = {
-  addName: ({commit}) => {
-    commit('ADD_CANDIDATENAME');
+  addName: ({commit}, value) => {
+    commit('ADD_CANDIDATENAME', value)
   },
-  deleteName: ({commit}) => {
-    commit('DELETE_CANDIDATENAME');
+  deleteName: ({commit}, index) => {
+    commit('DELETE_CANDIDATENAME', index)
   }
 }
 
 const getters = {
   isCandidatename: state => {
-    return state.candidatename;
+    return state.candidatename
   }
 }
 

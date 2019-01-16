@@ -2,40 +2,37 @@
   .Candidatenames
     .field.is-grouped
       .control.is-expanded
-        input.input.is-size-4(type="text", placeholder="Input Name", v-model.trim='$store.candidatename', @keypress.enter='addListname(candidateItem)')
-      .control
-        a.button.is-primary.is-large(@click='addCandidateName') Add Name
+        input.input.is-size-4(type="text", placeholder="Input Name", @keypress.enter='submitName')
+      //- .control
+      //-   a.button.is-primary.is-large(@click='addCandidateName') Add Name
     .Candidatenames_list
       .field.is-grouped.is-grouped-multiline
         //- nameset
-        .control(v-for='item in nameItem')
+        .control(v-for='(item, index) in isCandidateName')
           .tags.are-large.has-addons
-            .tag.is-link.is-large {{ isCandidateName }}
-            a.tag.is-delete.is-large(@click='deleteCandidateName')
+            .tag.is-link.is-large {{ item }}
+            a.tag.is-delete.is-large(@click='deleteCandidateName(index)')
 </template>
 
 <script>
 export default {
-  data: () => {
-    return this.$store.candidatename
-  },
   computed: {
     isCandidateName() {
-      return this.$store.getters.isCandidatename;
+      return this.$store.getters.isCandidatename
     }
   },
   methods: {
-    // addListname: (newName) => {
-    //   this.nameItem.push({
-    //     name: newName
-    //   });
-    //   this.candidateItem = '';
-    // },
-    addCandidateName(){
-      this.$store.dispatch('addName');
+    submitName(e) {
+      const value = e.target.value
+      this.$store.dispatch('addName', value)
+      e.target.value = ''
     },
-    deleteCandidateName(){
-      this.$store.dispatch('deleteName');
+    // addCandidateName(val){
+    //   this.$store.dispatch('addName', val)
+    // },
+    deleteCandidateName(index){
+      console.log(index)
+      this.$store.dispatch('deleteName', index)
     }
   }
 }

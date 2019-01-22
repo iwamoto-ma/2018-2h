@@ -1,11 +1,13 @@
 'use strict'
 import Vue from 'vue';
 import Vuex from 'vuex';
+import Category from '../assets/data/category.json';
 
 Vue.use(Vuex);
 
 const state = {
-  todos: []
+  todos: [],
+  foods: Category
 };
 
 const mutations = {
@@ -14,12 +16,18 @@ const mutations = {
   },
   DELETE_TODO (state, index) {
       state.todos.splice(index, 1);
+  },
+  ADD_CATEGORY (state, category) {
+    state.category.push(category);
   }
 };
 
 const getters = {
   currentTodo: state => {
     return state.todos;
+  },
+  currentCategory: state => {
+    return state.foods;
   }
 }
 

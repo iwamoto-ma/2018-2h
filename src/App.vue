@@ -1,7 +1,8 @@
 <template lang="pug">
   div
     StHeader
-    InputName
+    transition(name="slide" mode="out-in")
+      router-view
     StFooter
 </template>
 
@@ -10,13 +11,11 @@
 
 import StHeader from '@/components/structure/Header'
 import StFooter from '@/components/structure/Footer'
-import InputName from '@/components/main/InputName'
 
 
 export default {
   components: {
     StHeader,
-    InputName,
     StFooter
   }
 }
@@ -44,7 +43,6 @@ input
   border-radius 0
   outline none
   background none
-  
   color #666
   font-size 16px
   padding 1.5rem 2rem
@@ -59,5 +57,27 @@ input
   margin-left auto
   margin-right auto
   width 128rem
+
+.slide-enter-active
+  animation slide-in 200ms ease-out forwards
+
+.slide-leave-active
+  animation slide-out 200ms ease-out forwards
+
+@keyframes slide-in
+  from
+      transform translateY(-40px)
+      opacity 0
+  to
+      transform translateY(0)
+      opacity 1
+
+@keyframes slide-out
+  from
+      transform translateY(0);
+      opacity 1
+  to
+      transform translateY(-40px)
+      opacity 0
 
 </style>

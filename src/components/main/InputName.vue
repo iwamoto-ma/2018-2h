@@ -5,11 +5,14 @@
       input#js-member.input-Area-Member(type="text",　ref="comment")
       button.input-Area-Button(type="submit") 追加
 
-    table.member-List
+    table.member-List(v-show="todos.length > 0")
       tr.member-List-Item(v-for="(todo, index) in todos" v-bind:key="todo")
         td.member-List-Name {{ todo }}
         td.member-List-Button
           button(@click="deleteTodoText(index)") 削除
+
+    .result-Button(v-show="todos.length > 0")
+      router-link(to="/result") 幹事を決める
 
 </template>
 
@@ -94,7 +97,7 @@
     border-radius 6px
     border 2px solid #ff3860
     color #ff3860
-    cursor: pointer
+    cursor pointer
     width 80px
     height 40px
     font-size 14px
@@ -108,7 +111,7 @@
 
 .member-List
   width 500px
-  margin 0 auto
+  margin 0 auto 70px
 
   &-Item
     border-bottom 1px solid #ccc
@@ -139,5 +142,30 @@
 
       &:hover
         background-color #ccc
+
+.result
+  &-Button
+    background-image linear-gradient(#2f9701, #287e02)
+    -webkit-border-radius 6px
+    -moz-border-radius 6px
+    border-radius 6px
+    border 2px solid #287e02
+    color #fff
+    cursor pointer
+    width 500px
+    height 60px
+    font-size 24px
+    font-weight bold
+    text-align center
+    margin 0 auto 120px
+    line-height 2.4
+
+    &:hover
+      background-image linear-gradient(#287e02, #2f9701)
+
+    > a
+      color #fff
+      display block
+
 
 </style>

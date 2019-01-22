@@ -40,7 +40,7 @@
 <style lang="stylus">
 
   .result
-    background url('../../../static/izakaya_back.png') center bottom no-repeat
+    background url('/static/izakaya_back.png') center bottom no-repeat
     padding-bottom: 150px
 
   .st-Result

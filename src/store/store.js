@@ -1,7 +1,7 @@
 'use strict'
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Category from '../assets/data/category.json';
+import Category from '../assets/genre_s.json';
 
 Vue.use(Vuex);
 

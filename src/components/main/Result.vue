@@ -28,10 +28,10 @@
         return this.$store.getters.currentTodo[resultRange];
       },
       resultCategory: function() {
-        let max = this.$store.getters.currentCategory.length;
+        let max = this.$store.getters.currentCategory.category_s.length;
         let min = 1;
         const resultRange = Math.floor(Math.random() * (max - min + 1));
-        return this.$store.getters.currentCategory[resultRange].category;
+        return this.$store.getters.currentCategory.category_s[resultRange].category_s_name;
       }
     }
   }

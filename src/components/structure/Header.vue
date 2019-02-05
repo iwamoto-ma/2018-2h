@@ -1,7 +1,8 @@
 <template lang="pug">
   header.st-Header
     .st-Inner
-      h1.st-Header_Title スーパーくじ引き幹事さん
+      h1.st-Header_Title スーパーくじ引き
+        span.br 幹事さん
       p.st-Header_Description 宴会幹事決定ツール
 </template>
 
@@ -24,5 +25,8 @@
   .st-Header
     width: 100%
     text-align: center
+
+  .br
+    display block
 
 </style>

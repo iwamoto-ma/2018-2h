@@ -19,4 +19,10 @@
     &_Description
       font-size 2rem
       margin-top 0.8rem
+
+@media (max-width: 600px)
+  .st-Header
+    width: 100%
+    text-align: center
+
 </style>

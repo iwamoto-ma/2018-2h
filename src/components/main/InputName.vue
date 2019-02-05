@@ -108,6 +108,18 @@
       color #fff
       background-color #ff3860
 
+@media (max-width: 600px)
+  .input-Area
+    margin-bottom 40px
+    width 100%
+
+    &-Member
+      width 85%
+      float none
+
+    &-Button
+      width 85%
+      float none
 
 .member-List
   width 500px
@@ -143,6 +155,10 @@
       &:hover
         background-color #ccc
 
+@media (max-width: 600px)
+  .member-List
+    width 85%
+
 .result
   &-Button
     background-image linear-gradient(#2f9701, #287e02)
@@ -167,5 +183,9 @@
       color #fff
       display block
 
+@media (max-width: 600px)
+  .result
+    &-Button
+      width 85%
 
 </style>

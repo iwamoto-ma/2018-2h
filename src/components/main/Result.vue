@@ -69,4 +69,20 @@
     overflow hidden
     margin 0 auto
 
+@media (max-width: 600px)
+  .result
+    background-image url('/static/izakaya_back.png')
+    background-position center bottom
+    background-background-repeat no-repeat
+    background-size 90%
+
+  .st-Result
+    padding 20px 20px 10px
+    width: 90%
+
+    &_Text
+      font-size 18px
+      margin-bottom 10px
+
+
 </style>

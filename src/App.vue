@@ -29,6 +29,7 @@ html
 body
   font-family "M PLUS 1p"
   font-size 1.3rem
+  width: 100%
 
 button
   padding 0
@@ -53,10 +54,18 @@ input
   width 100%
   margin-bottom 30px
 
+@media (max-width: 600px)
+  input
+    margin-bottom 20px
+
 .st-Inner
   margin-left auto
   margin-right auto
   width 128rem
+
+@media (max-width: 600px)
+  .st-Inner
+    width: 100%
 
 .slide-enter-active
   animation slide-in 200ms ease-out forwards

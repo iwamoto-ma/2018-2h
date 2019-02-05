@@ -15,4 +15,9 @@
     &__Copyright
       font-size 3.2rem
 
+@media (max-width: 600px)
+  .st-Footer
+    width: 100%
+    margin-top: 50px;
+
 </style>

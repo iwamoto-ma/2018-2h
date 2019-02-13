@@ -6,4 +6,4 @@ PUG_ENV = "staging"
 PUG_ENV = "development"
 [[redirects]]
 from = "/*"
-to = "/"
+to = "/index.html"

@@ -4,3 +4,6 @@ PUG_ENV = "production"
 PUG_ENV = "staging"
 [context.branch-deploy.environment]
 PUG_ENV = "development"
+[[redirects]]
+from = "/*"
+to = "/index.html"

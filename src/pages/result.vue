@@ -28,7 +28,7 @@ export default {
 
   created () {
     if (!this.$store.getters.currentTodo.length) {
-      this.$router.push({ path: '/'})
+      window.location.href = '/'
     }
   }
 }

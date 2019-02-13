@@ -14,8 +14,12 @@ export default new Router({
       props: true
     },
     {
-      path: '/result/',
+      path: '/result',
       component: result
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })

@@ -33,6 +33,11 @@
         const resultRange = Math.floor(Math.random() * (max - min + 1));
         return this.$store.getters.currentCategory.category_s[resultRange].category_s_name;
       }
+    },
+    created() {
+      if (!this.$store.getters.currentMember.length) {
+        window.location.href = '/'
+      }
     }
   }
 </script>

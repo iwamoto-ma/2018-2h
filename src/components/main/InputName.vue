@@ -108,7 +108,7 @@
       color #fff
       background-color #ff3860
 
-@media (max-width: 600px)
+@media (max-width: 896px)
   .input-Area
     margin-bottom 40px
     width 100%
@@ -155,7 +155,7 @@
       &:hover
         background-color #ccc
 
-@media (max-width: 600px)
+@media (max-width: 896px)
   .member-List
     width 85%
 
@@ -183,7 +183,7 @@
       color #fff
       display block
 
-@media (max-width: 600px)
+@media (max-width: 896px)
   .result
     &-Button
       width 85%

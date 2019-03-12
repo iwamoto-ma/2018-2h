@@ -21,7 +21,7 @@
       font-size 2rem
       margin-top 0.8rem
 
-@media (max-width: 600px)
+@media (max-width: 896px)
   .st-Header
     width: 100%
     text-align: center

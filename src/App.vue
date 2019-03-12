@@ -54,7 +54,7 @@ input
   width 100%
   margin-bottom 30px
 
-@media (max-width: 600px)
+@media (max-width: 896px)
   input
     margin-bottom 20px
 
@@ -63,7 +63,7 @@ input
   margin-right auto
   width 128rem
 
-@media (max-width: 600px)
+@media (max-width: 896px)
   .st-Inner
     width: 100%
 

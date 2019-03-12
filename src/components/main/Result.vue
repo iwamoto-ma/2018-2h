@@ -69,7 +69,7 @@
     overflow hidden
     margin 0 auto
 
-@media (max-width: 600px)
+@media (max-width: 896px)
   .result
     background-image url('/static/izakaya_back.png')
     background-position center bottom

@@ -2,7 +2,7 @@
   div.result
     .st-Result
       p.st-Result_Text 今回の幹事は 
-        span.st-Result_Text-Red {{ resultName }}
+        span.st-Result_Text-Red {{ resultMember }}
         |  さん。
       p.st-Result_Text ジャンルは 
         span.st-Result_Text-Red {{ resultCategory }}
@@ -21,11 +21,11 @@
       }
     },
     computed: {
-      resultName: function() {
-        let max = this.$store.getters.currentTodo.length;
+      resultMember: function() {
+        let max = this.$store.getters.currentMember.length;
         let min = 1;
         const resultRange = Math.floor(Math.random() * (max - min + 1));
-        return this.$store.getters.currentTodo[resultRange];
+        return this.$store.getters.currentMember[resultRange];
       },
       resultCategory: function() {
         let max = this.$store.getters.currentCategory.category_s.length;

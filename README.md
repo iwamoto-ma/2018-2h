@@ -57,7 +57,7 @@ $ yarn build
 ```
 
 ## 設計方針
-+ B_E-M
++ BEM
 
 ## Git運用ルール
 + master

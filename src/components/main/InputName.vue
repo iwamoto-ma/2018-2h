@@ -1,17 +1,17 @@
 <template lang="pug">
   .st-Inner
     h2.input-Title 参加メンバーを入力してください
-    form.input-Area(v-on:submit.prevent="addTodoText")
+    form.input-Area(v-on:submit.prevent="addMemberText")
       input#js-member.input-Area-Member(type="text",　ref="comment")
       button.input-Area-Button(type="submit") 追加
 
-    table.member-List(v-show="todos.length > 0")
-      tr.member-List-Item(v-for="(todo, index) in todos" v-bind:key="todo")
-        td.member-List-Name {{ todo }}
+    table.member-List(v-show="members.length > 0")
+      tr.member-List-Item(v-for="(member, index) in members" v-bind:key="member")
+        td.member-List-Name {{ member }}
         td.member-List-Button
-          button(@click="deleteTodoText(index)") 削除
+          button(@click="deleteMemberText(index)") 削除
 
-    .result-Button(v-show="todos.length > 0")
+    .result-Button(v-show="members.length > 0")
       router-link(to="/result") 幹事を決める
 
 </template>
@@ -19,50 +19,50 @@
 <script>
 
   var STORAGE_KEY = 'todos-vuejs-demo'
-  var todoStorage = {
+  var memberStorage = {
     fetch: function() {
-      var storageTodos = JSON.parse(
+      var storageMembers = JSON.parse(
         localStorage.getItem(STORAGE_KEY) || '[]'
       )
-      return storageTodos
+      return storageMembers
     },
-    save: function(storageTodos) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(storageTodos))
+    save: function(storageMembers) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(storageMembers))
     }
   }
 
   export default {
     computed: {
-      todos: function() {
-        return this.$store.getters.currentTodo;
+      members: function() {
+        return this.$store.getters.currentMember;
       }
     },
     created() {
       // インスタンス作成時に自動的に fetch() する
-      this.$store.state.todos = todoStorage.fetch()
+      this.$store.state.members = memberStorage.fetch()
     },
     watch: {
-      todos: {
+      members: {
         // 引数はウォッチしているプロパティの変更後の値
-        handler: function(todos) {
-          todoStorage.save(todos)
+        handler: function(members) {
+          memberStorage.save(members)
         },
         // deep オプションでネストしているデータも監視
         deep: true
       }
     },
     methods: {
-      addTodoText: function(){
+      addMemberText: function(){
         var text = document.getElementById('js-member').value;
-        if(text !== ''){
-          this.$store.commit('ADD_TODO', text);
+        if (text.match(/\S/g)){
+          this.$store.commit('ADD_MEMBER', text);
           document.getElementById('js-member').value = '';
         } else {
           alert('名前を入力してください');
         }
       },
-      deleteTodoText: function(index){
-        this.$store.commit('DELETE_TODO', index);
+      deleteMemberText: function(index){
+        this.$store.commit('DELETE_MEMBER', index);
       }
     }
   }

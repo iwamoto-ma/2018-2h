@@ -6,16 +6,26 @@ import Category from '../assets/genre_s.json';
 Vue.use(Vuex);
 
 const state = {
-  todos: [],
+  members: [],
   foods: Category
 };
 
 const mutations = {
-  ADD_TODO (state, text) {
-      state.todos.push(text);
+  ADD_MEMBER (state, text) {
+      let result = false;
+      for(let i = 0; i < state.members.length; i++){
+        if(state.members[i] === text){
+          alert('既に登録されています');
+          return result = true;
+        }
+      }
+
+      if(!result) {
+        state.members.push(text);
+      }
   },
-  DELETE_TODO (state, index) {
-      state.todos.splice(index, 1);
+  DELETE_MEMBER (state, index) {
+      state.members.splice(index, 1);
   },
   ADD_CATEGORY (state, category) {
     state.category.push(category);
@@ -23,8 +33,8 @@ const mutations = {
 };
 
 const getters = {
-  currentTodo: state => {
-    return state.todos;
+  currentMember: state => {
+    return state.members;
   },
   currentCategory: state => {
     return state.foods;

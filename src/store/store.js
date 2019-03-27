@@ -1,11 +1,30 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import Add from './modules/add'
+'use strict'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
+
+const state = {
+  names: []
+};
+
+const mutations = {
+  ADD_NAME (state, name) {
+    state.names.push(name);
+  },
+  DELETE_NAME (state, index) {
+    state.names.splice(index, 1);
+  }
+};
+
+const getters = {
+  currentNames: state => {
+    return state.names;
+  }
+}
 
 export default new Vuex.Store({
-  modules: {
-    Add
-  }
-})
+  state,
+  mutations,
+  getters
+});
